@@ -5,12 +5,14 @@ const {
   updateProduct,
   deleteProduct,
 } = require("../controller/productController");
+const express = require("express");
+const router = express.Router();
 
-const express = require("express").Router();
-
-express.route("/api/products/").get(getProduct).post(postProduct);
-express
+router.route("/api/products/").get(getProduct).post(postProduct);
+router
   .route("/api/products/:id")
   .get(getSingleProduct)
   .put(updateProduct)
   .delete(deleteProduct);
+
+module.exports = router;

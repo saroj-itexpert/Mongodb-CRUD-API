@@ -7,9 +7,13 @@ const {
   updateProduct,
   deleteProduct,
 } = require("./controller/productController");
+const productRoute = require("./routes/productRoute");
+
 const { connection } = require("./connection/connection");
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+app.use("", productRoute);
 connection;
 
 app.listen(3000, (req, res) => {
